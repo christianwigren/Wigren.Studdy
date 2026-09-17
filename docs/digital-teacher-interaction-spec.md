@@ -4,6 +4,7 @@
 **Målgrupp:** Elever i grundskolan, med start i årskurs 8
 **Syfte:** Definiera vilka interaktioner programmet ska erbjuda och hur de ska användas för att skapa lärande, inte bara aktivitet.
 **Forskningsunderlag:** [Forskningsunderlag: interaktioner för digital lärare och övningsledare](learning-interactions-research.md)
+**Profil- och användarspecifikation:** [Profiler och användare](profiles-and-users-spec.md)
 
 ## 1. Produktbeslut
 
@@ -17,6 +18,8 @@ Programmet ska vara en **övningsledare** som hjälper eleven att:
 6. använda kunskapen i en ny situation.
 
 Programmet ska inte optimera för flest klick, längst session eller flest poäng. Den primära framgången är att eleven kan lösa en ny, fördröjd uppgift självständigt.
+
+Programmet ska vara en webbaserad applikation som körs i webbläsare på dator, surfplatta och mobil. Krav på användare, profiler, åtkomst och profilspecifik lagring finns i [Profiler och användare](profiles-and-users-spec.md).
 
 ## 2. Mål och icke-mål
 
@@ -201,7 +204,7 @@ En session ska kunna avslutas efter ett meningsfullt försök. Programmet ska in
 ### `Attempt`
 
 - `activityId`
-- `studentId`
+- `profileId` (se [Profiler och användare](profiles-and-users-spec.md))
 - `answer`
 - `startedAt`, `submittedAt`
 - `answerTimeMs`
@@ -213,10 +216,13 @@ En session ska kunna avslutas efter ett meningsfullt försök. Programmet ska in
 
 ### `EvidenceArtifact`
 
+- `profileId` (se [Profiler och användare](profiles-and-users-spec.md))
+
 En sparad produkt som kan granskas av eleven eller läraren: text, ljud, foto, handritad bild, beräkning, simuleringens data eller gruppdiskussionens individuella slutsats.
 
 ### `ReviewItem`
 
+- `profileId` (se [Profiler och användare](profiles-and-users-spec.md))
 - `objectiveId`
 - `nextReviewAt`
 - `interval`
@@ -231,6 +237,7 @@ Systemet ska separera **rå evidens**, **automatisk tolkning** och **lärarens b
 
 ### P0: första användbara version
 
+- Webbläsarbaserad, responsiv elevvy.
 - Kunskapsmål och aktivitetsbank.
 - Flervalsfråga, kortsvar, fri återkallning och tillämpningsproblem.
 - Försök, ledtråd, förklaring, reparation och nytt försök.
@@ -241,6 +248,7 @@ Systemet ska separera **rå evidens**, **automatisk tolkning** och **lärarens b
 - Elevens säkerhetsmarkering.
 - Tillgänglig text- och tangentbordsbaserad väg för alla kärnaktiviteter.
 - Loggning av försök, feltyp, feedback och fördröjt resultat.
+- Automatisk sparstatus och hantering av tillfälligt avbrott i nätverket.
 
 ### P1: fördjupad övningsledare
 
@@ -271,7 +279,6 @@ Systemet ska separera **rå evidens**, **automatisk tolkning** och **lärarens b
 - Facit, bedömningsrubrik och promptversion ska sparas.
 - Lärare ska kunna se originalfråga, elevsvar, automatisk motivering och ändra beslut.
 - Eleven ska kunna be om en enklare förklaring, annan representation eller tillgänglig svarsväg.
-- Programmet ska inte använda elevens personliga data för offentlig jämförelse.
 
 ## 9. Tillgänglighet och likvärdighet
 
